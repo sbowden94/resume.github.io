@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Scotty Bowden – Resume</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
+/* ===========================
+   THEME: LIGHT/DARK VIA PREFS
+   =========================== */
+:root {
+  --bg: #ffffff;
+  --fg: #111827;
+  --fg-muted: #6b7280;
+  --nav-bg: rgba(249, 250, 251, 0.9);
+  --card-bg: #f9fafb;
+  --accent: #2563eb;
+  --accent-soft: rgba(37,99,235,0.18);
+  --accent-strong: #1d4ed8;
+  --border: #e5e7eb;
+  --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #020617;
+    --fg: #e5e7eb;
+    --fg-muted: #9ca3af;
+    --nav-bg: rgba(15, 23, 42, 0.95);
+    --card-bg: #0b1120;
+    --accent: #60a5fa;
+    --accent-soft: rgba(96,165,250,0.18);
+    --accent-strong: #93c5fd;
+    --border: #1f2937;
+    --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.8);
+  }
+}
+
+/* ===========================
+   BASE
+   =========================== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, rgba(37,99,235,0.18), transparent 50%), var(--bg);
+  color: var(--fg);
+  line-height: 1.7;
+}
+
+/* ===========================
+   NAVBAR
+   =========================== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.nav-links a {
+  margin-left: 18px;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: var(--fg-muted);
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+/* ===========================
+   LAYOUT
+   =========================== */
+.main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 18px 48px;
+}
+
+/* ===========================
+   HERO (SINGLE COLUMN)
+   =========================== */
+.hero-section {
+  border-radius: 16px;
+  background: var(--card-bg);
+  padding: 22px 20px 22px;
+  margin: 22px 0;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border);
+}
+
+.hero {
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 0 0 8px;
+  font-size: 2.4rem;
+}
+
+.hero p.subtitle {
+  margin: 6px 0 18px;
+  color: var(--fg-muted);
+}
+
+.hero-badges {
+  margin-bottom: 16px;
+}
+
+.hero-badges span {
+  display: inline-block;
+  margin: 0 6px 6px 0;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.hero-actions {
+  margin-top: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-primary, .btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #ffffff;
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-primary:hover {
+  background: var(--accent-strong);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent-soft);
+}
+
+.btn-ghost:hover {
+  border-color: var(--accent);
+}
+
+/* ===========================
+   CONTENT SECTIONS
+   =========================== */
+section.content-section {
+  border-radius: 16px;
+  background: var(--card-bg);
+  padding: 22px 20px 18px;
+  margin-bottom: 22px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+section.content-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section.content-section h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.25rem;
+  color: var(--accent);
+}
+
+.section-subtitle {
+  margin-top: 0;
+  margin-bottom: 14px;
+  color: var(--fg-muted);
+  font-size: 0.9rem;
+}
+
+ul {
+  padding-left: 18px;
+}
+
+/* Resume details */
+.job-title {
+  font-weight: 600;
+}
+
+.job-company {
+  font-style: italic;
+}
+
+.date-range {
+  font-size: 0.85rem;
+  color: var(--fg-muted);
+}
+
+/* Projects cards */
+.project-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+}
+
+.project-card {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(15,23,42,0.02);
+}
+
+.project-card h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+}
+
+.project-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--fg-muted);
+}
+
+/* Contact list */
+.contact-list p {
+  margin: 4px 0;
+  font-size: 0.95rem;
+}
+
+/* Links */
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--accent-strong);
+  text-decoration: underline;
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
+
+/* ============================================
+   PRINT STYLES — CLEAN RESUME-FRIENDLY OUTPUT
+   ============================================ */
+@media print {
+
+  /* Hide everything by default */
+  body * {
+    visibility: hidden !important;
+  }
+
+  /* Show only the resume section and its children */
+  #resume, #resume * {
+    visibility: visible !important;
+  }
+
+  /* Resume should take the full page */
+  #resume {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 30px;
+    width: 100%;
+    background: #ffffff !important;
+    color: #000000 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  /* Hide nav, hero, and other sections explicitly */
+  header, .hero-section, #projects, #contact, #ai {
+    display: none !important;
+  }
+
+  /* Disable animations in print */
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+</style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-inner">
+      <div class="nav-brand">Scotty Bowden</div>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#ai">AI &amp; Automation</a>
+        <a href="#resume">Resume</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main" id="home">
+    <!-- HERO -->
+    <section class="hero-section">
+      <div class="hero">
+        <h1>Scotty Bowden</h1>
+        <p class="subtitle">
+          Workstation Specialist • Endpoint Management • Agentic AI &amp; PowerShell
+        </p>
+        <div class="hero-badges">
+          <span>Workstation Specialist</span>
+          <span>Agentic AI</span>
+          <span>PowerShell Automation</span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn-ghost" href="#resume">View Resume</a>
+          <button class="btn-primary" onclick="window.print()">Print / Save as PDF</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- AGENTIC AI & AUTOMATION -->
+    <section id="ai" class="content-section">
+      <h2>Agentic AI &amp; Automation Skills</h2>
+      <p class="section-subtitle">
+        Leveraging AI-driven reasoning and scripting to build practical tools for real-world IT operations.
+      </p>
+      <ul>
+        <li>Designing agentic AI workflows for endpoint automation and inventory.</li>
+        <li>Building AI-assisted PowerShell scripts and self-updating utilities.</li>
+        <li>Creating HTML-based local web UIs on top of PowerShell automation engines.</li>
+        <li>Using LLMs to accelerate SOP creation, documentation, and script refactoring.</li>
+        <li>Prompt engineering tailored to troubleshooting, diagnostics, and workstation prep.</li>
+      </ul>
+    </section>
+
+    <!-- RESUME -->
+    <section id="resume" class="content-section">
+      <h2>Resume</h2>
+      <p class="section-subtitle">
+        Summary of experience, skills, and education.
+      </p>
+
+      <!-- Contact & Header -->
+      <h3>Contact</h3>
+      <p>
+        <strong>Location:</strong> Rochester, MN 55904<br />
+        <strong>Phone:</strong> 507-206-1051<br />
+        <strong>Email 1:</strong> ScottyBowden1994@gmail.com<br />
+        <strong>Email 2:</strong> ScottyGray94@outlook.com
+      </p>
+
+      <!-- Summary -->
+      <h3>Professional Summary</h3>
+      <p>
+        Versatile IT support professional with hands-on experience across endpoint management,
+        workstation support, networking, cabling, and customer-facing technical troubleshooting.
+        Known for strong communication, strategic problem-solving, and the ability to adapt quickly
+        across diverse environments—from enterprise healthcare systems to retail, call centers, and
+        field support. Recognized by senior staff at a leading research hospital for technical skill,
+        professionalism, and reliability. Authorized to work in the U.S. and willing to relocate.
+      </p>
+
+      <!-- Core Competencies -->
+      <h3>Core Competencies</h3>
+      <ul>
+        <li>IT Support &amp; Help Desk</li>
+        <li>Endpoint Management</li>
+        <li>Workstation Deployment</li>
+        <li>Networking (TCP/IP, DHCP, DNS, Routing, Switching)</li>
+        <li>Wireless &amp; Ethernet Troubleshooting</li>
+        <li>Cabling &amp; Low-Voltage Installation</li>
+        <li>Active Directory &amp; Windows Server</li>
+        <li>Virtualization (VMware, Hyper-V, VirtualBox)</li>
+        <li>Software Deployment &amp; Imaging</li>
+        <li>Technical Documentation</li>
+        <li>Customer Service &amp; De-escalation</li>
+        <li>Linux &amp; Windows OS</li>
+        <li>VPN, QoS, VoIP</li>
+        <li>PowerShell &amp; Scripting</li>
+        <li>Cloud-Based Systems</li>
+        <li>IT Asset Management</li>
+      </ul>
+
+      <!-- Experience -->
+      <h3>Professional Experience</h3>
+
+      <p class="job-title">Workstation Specialist</p>
+      <p class="job-company">Mayo Clinic — Rochester, MN</p>
+      <p class="date-range">August 2024 – Present</p>
+      <ul>
+        <li>Provide workstation support within a large enterprise healthcare environment.</li>
+        <li>Support endpoint configuration, troubleshooting, and deployment workflows.</li>
+        <li>Collaborate with clinical and administrative staff to ensure reliable system performance.</li>
+        <li>Create solutions to streamline workflows (programming, SOP design, etc.).</li>
+      </ul>
+
+      <p class="job-title">IT Endpoint Coordinator</p>
+      <p class="job-company">Converge — Rochester, MN</p>
+      <p class="date-range">February 2023 – August 2024</p>
+      <ul>
+        <li>Served as primary point of contact for end users seeking technical services.</li>
+        <li>Triaged incidents, coordinated with technicians, and ensured timely resolution.</li>
+        <li>Managed inventory and asset tracking for endpoint devices.</li>
+        <li>Supported IT operations for the Mayo Clinic Health System.</li>
+      </ul>
+
+      <p class="job-title">College Tutor (Computer Science)</p>
+      <p class="job-company">Vernon College — Wichita Falls, TX</p>
+      <p class="date-range">February 2022 – January 2023</p>
+      <ul>
+        <li>Tutored students in computer science coursework and assisted instructors with lab delivery.</li>
+        <li>Reinforced concepts in networking, programming, and systems administration.</li>
+      </ul>
+
+      <p class="job-title">Technician / Maintenance &amp; Cashier</p>
+      <p class="job-company">Alfurat Corporation — Wichita Falls, TX</p>
+      <p class="date-range">August 2021 – January 2023</p>
+      <ul>
+        <li>Engineered and installed a 21-camera IP-based security system, including cabling, terminations, DHCP configuration, and monitoring setup.</li>
+        <li>Installed and configured an 8-ohm sound system and performed POS system maintenance.</li>
+        <li>Conducted store maintenance, inventory updates, and customer checkout operations.</li>
+      </ul>
+
+      <p class="job-title">Cable Puller</p>
+      <p class="job-company">Prime Logic — Wichita Falls, TX</p>
+      <p class="date-range">August 2020 – September 2020</p>
+      <ul>
+        <li>Pulled, dressed, and terminated data and low-voltage cabling at industrial scale.</li>
+        <li>Assisted in setting up distribution frames and patch panels for network infrastructure.</li>
+      </ul>
+
+      <p class="job-title">Customer Care Representative</p>
+      <p class="job-company">The Results Company — Wichita Falls, TX</p>
+      <p class="date-range">July 2020 – August 2020</p>
+      <ul>
+        <li>Provided help desk support for a banking client, resolving customer issues and inquiries.</li>
+      </ul>
+
+      <p class="job-title">Remote Technical Support Specialist</p>
+      <p class="job-company">Support.com — Wichita Falls, TX</p>
+      <p class="date-range">January 2015 – August 2015</p>
+      <ul>
+        <li>Assessed, troubleshot, and resolved end-user issues with wireless and Ethernet connectivity to Comcast equipment.</li>
+        <li>Configured gateways, including port forwarding, bridge mode, and QoS adjustments.</li>
+        <li>Educated users on equipment, policies, and installation.</li>
+        <li>Documented issues, solutions, and metadata for cross-department collaboration.</li>
+      </ul>
+
+      <p class="job-title">Junior Administrator / Clerk / Support Technician</p>
+      <p class="job-company">Domino Food &amp; Fuel / Elmer Smith Oil Co. — Clinton, OK</p>
+      <p class="date-range">February 2012 – February 2013</p>
+      <ul>
+        <li>Promoted from clerk to junior administrator supporting multiple store locations.</li>
+        <li>Provided remote and on-site technical support, including computer maintenance, deployment, CCTV installation and monitoring, safe/vault repair, and network wiring.</li>
+        <li>Trained new cashiers and supported scheduling needs.</li>
+        <li>Documented work and maintained communication with senior administrators.</li>
+      </ul>
+
+      <h3>Additional Roles</h3>
+      <ul>
+        <li>Convenience Store Clerk, EZ-Mart — Mineral Wells, TX (2019–2020)</li>
+        <li>Receiving Associate, Walmart — Wichita Falls, TX (2014)</li>
+        <li>Insurance Agent, American Income Life — Oklahoma City, OK (2013)</li>
+        <li>Receiving Associate/Stocker, Walmart — Weatherford, OK (2013)</li>
+        <li>Dishwasher, Whistle Stop Café — Electra, TX (2010)</li>
+      </ul>
+
+      <!-- Education -->
+      <h3>Education</h3>
+      <p>
+        <strong>Associate of Applied Science — Computer Science</strong><br />
+        Vernon College — Wichita Falls, TX<br />
+        January 2021 – December 2023
+      </p>
+      <p>
+        Coursework included: CompTIA A+, Network+, Server+, Cisco CCNA, PHP, HTML5/Web Tools, C++ Programming.
+      </p>
+
+      <h4>Curriculum Highlights</h4>
+      <ul>
+        <li>Security fundamentals and best practices</li>
+        <li>Networking and routing (including Cisco-focused training)</li>
+        <li>Hardware installation, repair, and troubleshooting</li>
+        <li>Operating systems and software configuration</li>
+        <li>Server administration and virtualization concepts</li>
+        <li>Software development foundations (including C++ and scripting)</li>
+        <li>Web development (HTML5, web tools, and related technologies)</li>
+        <li>3D printing and rapid prototyping concepts</li>
+        <li>Broad IT systems, infrastructure, and applied computing coursework</li>
+      </ul>
+
+      <!-- Certifications -->
+      <h3>Certifications</h3>
+      <ul>
+        <li>CompTIA A+ — Valid through January 2027</li>
+        <li>Computer &amp; Information Sciences Level 1 Certificate</li>
+        <li>Driver’s License</li>
+      </ul>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="content-section">
+      <h2>Projects &amp; Highlights</h2>
+      <p class="section-subtitle">
+        Selected examples of systems, automation, and AI-assisted work.
+      </p>
+      <div class="project-list">
+        <div class="project-card">
+          <h3>Enterprise Workstation Prep &amp; Hardening Script</h3>
+          <p>
+            Built a PowerShell-based workstation preparation script to remove legacy apps,
+            install Chrome Enterprise, apply branding, enforce shell policies, and log all
+            actions for enterprise healthcare endpoints.
+          </p>
+        </div>
+        <div class="project-card">
+          <h3>AI-Assisted Inventory &amp; Reporting</h3>
+          <p>
+            Developed an inventory script to capture software, drivers, and updates into CSV/Excel,
+            extended with agentic AI patterns to support analysis and documentation workflows.
+          </p>
+        </div>
+        <div class="project-card">
+          <h3>Local Web UI Frontends for PowerShell Automation</h3>
+          <p>
+            Experimented with HTML-based local web interfaces on top of PowerShell HttpListener,
+            providing intuitive buttons and dashboards for complex scripts.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="content-section">
+      <h2>Contact</h2>
+      <p class="section-subtitle">
+        Reach out for workstation engineering, automation, or agentic AI-related projects.
+      </p>
+      <div class="contact-list">
+        <p><strong>Location:</strong> Rochester, MN 55904</p>
+        <p><strong>Phone:</strong> 507-206-1051</p>
+        <p><strong>Email 1:</strong> ScottyBowden1994@gmail.com</p>
+        <p><strong>Email 2:</strong> ScottyGray94@outlook.com</p>
+      </div>
+    </section>
+  </main>
+
+<script>
+/*
+  IntersectionObserver to add slide-in animation
+  when sections come into view.
+*/
+document.addEventListener('DOMContentLoaded', () => {
+  const sections = document.querySelectorAll('section.content-section');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  sections.forEach(sec => observer.observe(sec));
+});
+</script>
+</body>
+</html>
