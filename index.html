@@ -424,6 +424,14 @@ a:hover {
         <li>Git Repository Management</li>
         <li>Automated Testing (Pester)</li>
         <li>Project Health Metrics</li>
+        <li>Modular PowerShell Architecture</li>
+        <li>Enterprise Script Hardening &amp; Idempotency</li>
+        <li>Registry Automation (HKLM/HKCU/Default Hive)</li>
+        <li>COM-Based Version Detection (Windows Installer)</li>
+        <li>Scheduled Task Engineering (schtasks/CIM)</li>
+        <li>Chrome Enterprise Deployment &amp; Policy</li>
+        <li>Driver Management (pnputil)</li>
+        <li>AppX &amp; MSI Uninstall Automation</li>
         <li>IT Support &amp; Help Desk</li>
         <li>Endpoint Management</li>
         <li>Workstation Deployment</li>
@@ -609,15 +617,33 @@ a:hover {
 <p class="section-subtitle">
         Selected examples of systems, automation, and AI-assisted work.
       </p>
+      <div class="project-item">
+        <h3>Parts Management Workstation Prep Framework <span class="date">(2024–2026)</span></h3>
+        <p>Designed and built a modular, idempotent PowerShell workstation preparation framework for enterprise healthcare checkout stations at Mayo Clinic. Orchestrates the full build pipeline from a single launcher with rich logging, safe multi-profile handling, and automatic restart suppression for iterative runs.</p>
+        <p><strong>Key Modules (6 independently executable):</strong></p>
+        <ul>
+          <li><strong>Module.Uninstalls</strong> – Silently removes Chrome, Teams, OneDrive, Imprivata (pnputil driver removal + MSI fallback), and Epic; all errors logged and non-fatal</li>
+          <li><strong>Module.ShortcutsAndShell</strong> – Desktop cleanup, public/Startup shortcut deployment, shell icon hygiene, and taskbar pin reset for HKCU + Default profile</li>
+          <li><strong>Module.Branding</strong> – Lock screen (HKLM policy), wallpaper, and screensaver applied to current and Default profile via live hive mount/unmount</li>
+          <li><strong>Module.Profiles</strong> – Safe non-TU user profile removal (folder + SID) with orphan re-scan; TU accounts untouched</li>
+          <li><strong>Module.FirstTimeChrome</strong> – Imports Chrome local policy via reg.exe, sets default browser via DISM, registers per-user logon scheduled task at RunLevel Limited</li>
+          <li><strong>Module.Payload</strong> – Network-to-local copy jobs with file count logging and graceful process stop</li>
+        </ul>
+        <p><strong>Engineering highlights:</strong></p>
+        <ul>
+          <li>Chrome version guard using Windows Installer COM object — skips reinstall if MSI matches installed version</li>
+          <li>Default hive automation via <code>reg.exe load/unload</code> with .GetNewClosure() for safe per-user registry operations</li>
+          <li>All modules support standalone execution via <code>if ($MyInvocation.InvocationName -ne '.')</code> bootstrap guard</li>
+          <li><code>-SkipRestart</code> switch on orchestrator for iterative troubleshooting runs</li>
+          <li>Per-user first-logon script with run-once guard, audit marker, and taskbar cleanup at every logon</li>
+          <li>Post-build validation suite (parse, app state, Chrome logon, file structure)</li>
+        </ul>
+        <p><strong>Technologies:</strong> PowerShell 5.1, Windows Registry/HIVE APIs, COM (WindowsInstaller), pnputil, DISM, schtasks/CIM, reg.exe, MSI, AppX/Appx Provisioning, HTML technical documentation<br>
+        <strong>Scope:</strong> 15+ scripts, 6 modules, 4 validation tools, full HTML README<br>
+        <strong>Environment:</strong> Mayo Clinic enterprise healthcare endpoints (Parts Management checkout stations)</p>
+      </div>
+
       <div class="project-list">
-        <div class="project-card">
-          <h3>Enterprise Workstation Prep &amp; Hardening Script</h3>
-          <p>
-            Built a PowerShell-based workstation preparation script to remove legacy apps,
-            install Chrome Enterprise, apply branding, enforce shell policies, and log all
-            actions for enterprise healthcare endpoints.
-          </p>
-        </div>
         <div class="project-card">
           <h3>AI-Assisted Inventory &amp; Reporting</h3>
           <p>
