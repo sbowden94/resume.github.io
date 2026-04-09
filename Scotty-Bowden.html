@@ -438,6 +438,7 @@ a:hover {
         <li>Lead root-cause analysis for high-volume Windows event failures (Schannel, DCOM, service instability), producing actionable remediation playbooks.</li>
         <li>Build AI-assisted diagnostics and reporting workflows that convert raw endpoint telemetry into executive-ready HTML reports and guided fix plans.</li>
         <li>Partner with clinical and administrative teams to resolve incidents quickly while improving SOP quality, repeatability, and time-to-resolution.</li>
+        <li>Built an Electron desktop application (HP DMI Branding Tool) that automates Feature Byte, Build ID, and SKU collection from HP Partsurfer using Playwright BFF API interception, replacing a manual multi-tool branding process for 10+ technicians.</li>
       </ul>
 
       <p class="job-title">IT Endpoint Coordinator</p>
@@ -547,6 +548,29 @@ a:hover {
     <!-- PROJECTS -->
     <section id="projects" class="content-section">
       <h2>Projects &amp; Highlights</h2>
+      <div class="project-item">
+        <h3>HP DMI Branding Tool — Desktop Application <span class="date">(2025–2026)</span></h3>
+        <p>Designed and built a full-stack Electron desktop application that automates HP DMI (Desktop Management Interface) branding data collection, replacing a manual multi-tool process for a team of 10+ technicians performing 20–50 unit rebrandings per week.</p>
+        <p><strong>Key Components:</strong></p>
+        <ul>
+          <li><strong>Partsurfer BFF API Scraper</strong> — Playwright-based headless browser with BFF API response interception to extract Feature Byte, Build ID, and SKU from HP Partsurfer's Advanced tab</li>
+          <li><strong>SQLite Branding Database</strong> — sql.js (WebAssembly) database with Feature Byte as primary key, supporting upsert with non-empty field preservation and 4-strategy fallback lookup (SSID → model → Build ID → SKU)</li>
+          <li><strong>HPIA Platform Enricher</strong> — 3-stage pipeline querying HP's HPIA Platform List (580 platforms), SDM Reference CABs, and CVA metadata for SSID resolution and BIOS SoftPaq identification</li>
+          <li><strong>Express API Server</strong> — Local REST API (port 3847) serving scrape, capture, enrich, database, health, and logging endpoints</li>
+          <li><strong>22-Page Documentation Website</strong> — Interactive HTML documentation covering BIOS tables, EFI tools, branding workflows, serial lookup, and QR code generation for printable branding sheets</li>
+          <li><strong>Production Infrastructure</strong> — Splash screen, daily rotating log files, 7-subsystem health checks, graceful shutdown with port cleanup, NSIS installer</li>
+        </ul>
+        <p><strong>Technical Challenges Solved:</strong></p>
+        <ul>
+          <li>Bypassed Azure Front Door WAF blocking server-side Partsurfer requests by routing through Playwright browser context with BFF API JSON interception</li>
+          <li>Replaced DuckDB (Node v24 native compilation failure) with sql.js WebAssembly for zero native dependency database access</li>
+          <li>Built fuzzy model name normalization to handle screen size suffixes, "Notebook PC" variants, and generation naming inconsistencies across HP's platform catalog</li>
+        </ul>
+        <p><strong>Technologies:</strong> Electron, Express.js, Playwright, sql.js (SQLite/WebAssembly), Node.js, HP CMSL, HP HPIA API, electron-builder (NSIS)<br>
+        <strong>Scope:</strong> 42-model database (98% Feature Byte coverage), 36 automated tests, 10-serial regression suite, 22-page docs site<br>
+        <strong>Outcome:</strong> Reduced branding data lookup from a multi-step manual process to a single serial number scan with instant results and printable QR-coded branding sheets</p>
+      </div>
+
       <p class="section-subtitle">
         Selected examples of systems, automation, and AI-assisted work.
       </p>

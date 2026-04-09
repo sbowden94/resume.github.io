@@ -456,6 +456,7 @@ a:hover {
         <li>Designed a three-tier convergence model (machine prep → per-user logon → per-boot startup) ensuring configuration drift correction at every execution layer.</li>
         <li>Led root-cause analysis for high-volume Windows event failures (Schannel, DCOM, service instability), producing actionable remediation playbooks with executive-ready HTML reporting.</li>
         <li>Designed custom VS Code Copilot agents (Plan, Ask, Explore) with role-specific tool restrictions and handoff workflows for AI-augmented development.</li>
+        <li>Built an Electron desktop application (HP DMI Branding Tool) that automates Feature Byte, Build ID, and SKU collection from HP Partsurfer using Playwright BFF API interception, replacing a manual multi-tool branding process for 10+ technicians.</li>
       </ul>
 
       <p class="job-title">IT Endpoint Coordinator</p>
@@ -621,6 +622,29 @@ a:hover {
         <p><strong>Technologies:</strong> VS Code Insiders, Copilot Chat custom agents (.agent.md), YAML frontmatter, Markdown prompt engineering<br>
         <strong>Scope:</strong> 3 agents, 11 validated tool bindings, 2 handoff workflows<br>
         <strong>Impact:</strong> Structured AI-assisted development with clear separation between research, planning, and implementation phases</p>
+      </div>
+
+      <div class="project-item">
+        <h3>HP DMI Branding Tool — Desktop Application <span class="date">(2025–2026)</span></h3>
+        <p>Designed and built a full-stack Electron desktop application that automates HP DMI (Desktop Management Interface) branding data collection, replacing a manual multi-tool process for a team of 10+ technicians performing 20–50 unit rebrandings per week.</p>
+        <p><strong>Key Components:</strong></p>
+        <ul>
+          <li><strong>Partsurfer BFF API Scraper</strong> — Playwright-based headless browser with BFF API response interception to extract Feature Byte, Build ID, and SKU from HP Partsurfer's Advanced tab</li>
+          <li><strong>SQLite Branding Database</strong> — sql.js (WebAssembly) database with Feature Byte as primary key, supporting upsert with non-empty field preservation and 4-strategy fallback lookup (SSID → model → Build ID → SKU)</li>
+          <li><strong>HPIA Platform Enricher</strong> — 3-stage pipeline querying HP's HPIA Platform List (580 platforms), SDM Reference CABs, and CVA metadata for SSID resolution and BIOS SoftPaq identification</li>
+          <li><strong>Express API Server</strong> — Local REST API (port 3847) serving scrape, capture, enrich, database, health, and logging endpoints</li>
+          <li><strong>22-Page Documentation Website</strong> — Interactive HTML documentation covering BIOS tables, EFI tools, branding workflows, serial lookup, and QR code generation for printable branding sheets</li>
+          <li><strong>Production Infrastructure</strong> — Splash screen, daily rotating log files, 7-subsystem health checks, graceful shutdown with port cleanup, NSIS installer</li>
+        </ul>
+        <p><strong>Technical Challenges Solved:</strong></p>
+        <ul>
+          <li>Bypassed Azure Front Door WAF blocking server-side Partsurfer requests by routing through Playwright browser context with BFF API JSON interception</li>
+          <li>Replaced DuckDB (Node v24 native compilation failure) with sql.js WebAssembly for zero native dependency database access</li>
+          <li>Built fuzzy model name normalization to handle screen size suffixes, "Notebook PC" variants, and generation naming inconsistencies across HP's platform catalog</li>
+        </ul>
+        <p><strong>Technologies:</strong> Electron, Express.js, Playwright, sql.js (SQLite/WebAssembly), Node.js, HP CMSL, HP HPIA API, electron-builder (NSIS)<br>
+        <strong>Scope:</strong> 42-model database (98% Feature Byte coverage), 36 automated tests, 10-serial regression suite, 22-page docs site<br>
+        <strong>Outcome:</strong> Reduced branding data lookup from a multi-step manual process to a single serial number scan with instant results and printable QR-coded branding sheets</p>
       </div>
 
       <p class="section-subtitle">
