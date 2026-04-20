@@ -1,0 +1,212 @@
+<!-- PROJECTS PARTIAL -->
+<div class="section-label">Portfolio</div>
+<h2 class="page-title">Projects &amp; Highlights</h2>
+<p class="page-subtitle">
+  Selected examples of systems, automation, AI architecture, and full-stack development work.
+</p>
+
+<!-- ═══ FUTURE::NOW ═══ -->
+<div class="project">
+  <div class="tag tag-green">Featured &bull; April 2026</div>
+  <h3>Autonomous Multi-Agent Development System <span class="date">(FUTURE::NOW)</span></h3>
+  <p>
+    A fully autonomous AI development system running on a single laptop. Five specialized AI agents collaborate through the filesystem to plan sprints, write code, run tests, review changes, and push commits &mdash; while the human sleeps. From power button to working agent in under 60 seconds. Zero approve buttons.
+  </p>
+
+  <details>
+    <summary>System Architecture</summary>
+    <ul>
+      <li><strong>Coordinator</strong> &mdash; Orchestrates sprint backlog, decomposes tasks, delegates to specialists, enforces lifecycle</li>
+      <li><strong>Architect</strong> &mdash; Designs schemas, API contracts, module boundaries; outputs specs, never code</li>
+      <li><strong>Coder</strong> &mdash; Implements features following architect specs; filesystem-scoped to project/src/</li>
+      <li><strong>Tester</strong> &mdash; Writes unit/integration/acceptance tests; reports results as structured JSON</li>
+      <li><strong>Reviewer</strong> &mdash; Reviews for correctness, OWASP Top 10 security, standards compliance</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Closed-Loop Boot Chain</summary>
+    <ul>
+      <li><strong>Step 1:</strong> Power on &rarr; Windows auto-login via registry (no lock screen)</li>
+      <li><strong>Step 2:</strong> Startup folder fires boot.ps1 &rarr; waits for network, refreshes PATH</li>
+      <li><strong>Step 3:</strong> Docker Desktop launches &rarr; PostgreSQL container ready</li>
+      <li><strong>Step 4:</strong> VS Code opens workspace &rarr; all extensions activated &rarr; admin mode</li>
+      <li><strong>Step 5:</strong> Agent reads BOOT.md &rarr; loads state &rarr; resumes sprint &rarr; fully autonomous</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Self-Healing Mechanisms</summary>
+    <ul>
+      <li><strong>State Recovery</strong> &mdash; Detects malformed ai-state.json, stale tasks, resets and logs recovery</li>
+      <li><strong>Test-Driven Rollback</strong> &mdash; Failed implementations get 2 retry cycles before redesign escalation</li>
+      <li><strong>Spec Reconciliation</strong> &mdash; Reviewer detects implementation drift, generates targeted fix lists</li>
+      <li><strong>Memory Compaction</strong> &mdash; Summarizes old MEMORY.md entries to preserve context window</li>
+      <li><strong>Deadlock Detection</strong> &mdash; Zero-progress heartbeats trigger root cause diagnosis</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>What the Agents Are Building</summary>
+    <p>A multi-framework compliance automation platform (SOC2, HIPAA, GDPR) for mid-market companies. 7 modules: IAM, Framework Engine, Control Registry, Evidence Collector, Assessment Engine, Audit Trail, Reporting.</p>
+  </details>
+
+  <div class="meta">
+    <strong>Stack:</strong> TypeScript strict, Fastify, Drizzle ORM, PostgreSQL 16+ (RLS), React 19+, Docker, Vitest, Playwright<br>
+    <strong>Agent Engine:</strong> GitHub Copilot Agentic Workflows, custom .agent.md definitions, YAML frontmatter<br>
+    <strong>Automation:</strong> 18 VS Code auto-approve settings, Windows registry auto-login, PowerShell boot chain<br>
+    <strong>Showcase:</strong> <a href="https://sbowden94.github.io/agentic-showcase/" target="_blank" rel="noopener">sbowden94.github.io/agentic-showcase</a>
+  </div>
+</div>
+
+<!-- ═══ HP DMI Branding Tool ═══ -->
+<div class="project">
+  <div class="tag tag-accent">Desktop Application &bull; 2025&ndash;2026</div>
+  <h3>HP DMI Branding Tool <span class="date">Electron</span></h3>
+  <p>
+    Full-stack Electron desktop application automating HP DMI (Desktop Management Interface) branding data collection, replacing a manual multi-tool process for 10+ technicians performing 20&ndash;50 unit rebrandings per week.
+  </p>
+
+  <details>
+    <summary>Key Components</summary>
+    <ul>
+      <li><strong>Partsurfer BFF API Scraper</strong> &mdash; Playwright headless browser with BFF API response interception for Feature Byte, Build ID, SKU extraction</li>
+      <li><strong>SQLite Branding Database</strong> &mdash; sql.js (WebAssembly) with 4-strategy fallback lookup (SSID &rarr; model &rarr; Build ID &rarr; SKU)</li>
+      <li><strong>HPIA Platform Enricher</strong> &mdash; 3-stage pipeline: HPIA Platform List (580 models), SDM Reference CABs, CVA metadata</li>
+      <li><strong>Express API Server</strong> &mdash; Local REST API (port 3847) with scrape, capture, enrich, database, health, logging endpoints</li>
+      <li><strong>22-Page Documentation Website</strong> &mdash; BIOS tables, EFI tools, branding workflows, QR code generation</li>
+      <li><strong>Production Infrastructure</strong> &mdash; Splash screen, rotating logs, 7-subsystem health checks, NSIS installer</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Technical Challenges Solved</summary>
+    <ul>
+      <li>Bypassed Azure Front Door WAF by routing through Playwright browser context with BFF API JSON interception</li>
+      <li>Replaced DuckDB (Node v24 native compilation failure) with sql.js WebAssembly for zero native dependencies</li>
+      <li>Built fuzzy model name normalization for screen size suffixes and generation naming inconsistencies</li>
+    </ul>
+  </details>
+
+  <div class="meta">
+    <strong>Technologies:</strong> Electron, Express.js, Playwright, sql.js (SQLite/WebAssembly), Node.js, HP CMSL, electron-builder (NSIS)<br>
+    <strong>Scope:</strong> 42-model database (98% Feature Byte coverage), 36 automated tests, 10-serial regression suite<br>
+    <strong>Outcome:</strong> Reduced branding lookup from multi-step manual process to a single serial number scan
+  </div>
+</div>
+
+<!-- ═══ Autonomous Learning Impulse System ═══ -->
+<div class="project">
+  <div class="tag tag-cyan">AI System &bull; March 2026</div>
+  <h3>Autonomous Learning Impulse System</h3>
+  <p>
+    Self-improving AI learning system that autonomously generates, implements, tests, and refines agentic AI concepts without human prompting. Multi-signal scoring across 40+ topics in 7 AI domains.
+  </p>
+
+  <details>
+    <summary>Learning Modules (5 integrated systems)</summary>
+    <ul>
+      <li><strong>Constraint-Based Planner</strong> &mdash; Time-aware task decomposition respecting dependencies and resource constraints</li>
+      <li><strong>Memory Consolidation</strong> &mdash; Compresses episodic history into semantic insights with topic tracking</li>
+      <li><strong>Confidence Calibration</strong> &mdash; Tracks prediction vs outcomes to quantify and adjust confidence levels</li>
+      <li><strong>Tool Failure Recovery</strong> &mdash; Exponential backoff, transient error detection, fallback orchestration</li>
+      <li><strong>Counterfactual Review</strong> &mdash; Post-hoc analysis to extract policy improvements and option scoring</li>
+    </ul>
+  </details>
+
+  <div class="meta">
+    <strong>Technologies:</strong> PowerShell 7, JSON state persistence, modular architecture, signal-based feedback loops<br>
+    <strong>Metrics:</strong> 5 modules, 16+ validation checks, automatic impulse generation every 20 minutes<br>
+    <strong>Status:</strong> Production-ready, 7/7 module tests passing, daemon running continuously
+  </div>
+</div>
+
+<!-- ═══ Agent Brain ═══ -->
+<div class="project">
+  <div class="tag tag-cyan">Developer Tooling &bull; March 2026</div>
+  <h3>Agent Brain &mdash; Project Intelligence System</h3>
+  <p>
+    Comprehensive PowerShell toolkit giving AI agents contextual awareness about projects, files, git repositories, and development workflows. Live, searchable index of the entire development environment.
+  </p>
+
+  <details>
+    <summary>Components</summary>
+    <ul>
+      <li><strong>Background File System Scanner</strong> &mdash; Periodic indexing with configurable depth and exclusions</li>
+      <li><strong>Project Registry</strong> &mdash; Auto-detection of tech stack, entry points, and dependencies</li>
+      <li><strong>Git Status Monitor</strong> &mdash; Tracks uncommitted changes across all repositories</li>
+      <li><strong>Project Health Checker</strong> &mdash; Automated quality assessment with scoring system</li>
+      <li><strong>Cross-Project Search</strong> &mdash; Regex-enabled code search across entire codebase</li>
+      <li><strong>Context Builder</strong> &mdash; Intelligent file gathering for task-specific AI analysis</li>
+    </ul>
+  </details>
+
+  <div class="meta">
+    <strong>Technologies:</strong> PowerShell, JSON-based caching, Background Jobs, Pester testing<br>
+    <strong>Scope:</strong> 19+ scripts, comprehensive test coverage, full documentation
+  </div>
+</div>
+
+<!-- ═══ VS Code Agent Architecture ═══ -->
+<div class="project">
+  <div class="tag tag-accent">Agent Design &bull; March 2026</div>
+  <h3>Custom VS Code Copilot Agent Architecture</h3>
+  <p>
+    Multi-agent VS Code Copilot system with role-specific tool restrictions, subagent delegation, and handoff-driven sequential workflows for AI-augmented development.
+  </p>
+
+  <details>
+    <summary>Design Highlights</summary>
+    <ul>
+      <li><strong>Plan</strong> &mdash; Read-only research agent with Explore subagent delegation and memory persistence</li>
+      <li><strong>Ask</strong> &mdash; Knowledge agent restricted to search, read, and web tools</li>
+      <li><strong>Explore</strong> &mdash; Fast parallel codebase search with minimal tool surface</li>
+      <li>YAML frontmatter with validated tool identifiers and agent-scoped permissions</li>
+      <li>Least-privilege tool assignment: read-only agents blocked from edit/execute tools</li>
+    </ul>
+  </details>
+
+  <div class="meta">
+    <strong>Scope:</strong> 3 agents, 11 validated tool bindings, 2 handoff workflows<br>
+    <strong>Impact:</strong> Structured AI-assisted development with clear research/planning/implementation phases
+  </div>
+</div>
+
+<!-- ═══ Workstation Prep Framework ═══ -->
+<div class="project">
+  <div class="tag tag-green">Enterprise &bull; 2024&ndash;2026</div>
+  <h3>Parts Management Workstation Prep Framework</h3>
+  <p>
+    Modular, idempotent PowerShell workstation preparation framework for enterprise healthcare checkout stations at Mayo Clinic. Built for repeatable reruns, fast troubleshooting, and operational safety across multi-profile Windows endpoints.
+  </p>
+
+  <details>
+    <summary>Modules (6 independently executable)</summary>
+    <ul>
+      <li><strong>Module.Uninstalls</strong> &mdash; Silent Chrome, Teams, OneDrive, Imprivata, Epic removal with non-fatal error logging</li>
+      <li><strong>Module.ShortcutsAndShell</strong> &mdash; Desktop cleanup, shortcut deployment, taskbar pin reset (HKCU + Default)</li>
+      <li><strong>Module.Branding</strong> &mdash; Lock screen, wallpaper, screensaver via live hive mount/unmount</li>
+      <li><strong>Module.Profiles</strong> &mdash; Safe offline hive operations with retry-based load/unload handling</li>
+      <li><strong>Module.FirstTimeChrome</strong> &mdash; Chrome local policy, default browser via DISM, logon scheduled task</li>
+      <li><strong>Module.Payload</strong> &mdash; Network-to-local copy jobs with file count logging</li>
+    </ul>
+  </details>
+
+  <div class="meta">
+    <strong>Technologies:</strong> PowerShell 5.1, Windows Registry/HIVE APIs, COM, pnputil, DISM, schtasks/CIM<br>
+    <strong>Scope:</strong> 15+ scripts, 6 modules, full validation toolkit<br>
+    <strong>Outcome:</strong> Reduced manual setup from hours to minutes with safer production reruns
+  </div>
+</div>
+
+<!-- ═══ Smaller projects ═══ -->
+<div class="card-grid cols-2" style="margin-top: 1.5rem;">
+  <div class="card">
+    <h3>AI-Assisted Inventory &amp; Reporting</h3>
+    <p>Inventory script capturing software, drivers, and updates into CSV/Excel, extended with agentic AI patterns for analysis and documentation workflows.</p>
+  </div>
+  <div class="card">
+    <h3>Local Web UI Frontends</h3>
+    <p>HTML-based local web interfaces on top of PowerShell HttpListener, providing buttons and dashboards for complex automation scripts.</p>
+  </div>
+</div>
