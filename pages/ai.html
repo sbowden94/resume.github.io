@@ -2,9 +2,26 @@
 <div class="section-label">Capabilities</div>
 <h2 class="page-title">AI &amp; Automation Skills</h2>
 <p class="page-subtitle">
-  Leveraging AI-driven reasoning, multi-agent orchestration, and scripting to build practical tools for real-world operations.
+  Leveraging AI-driven reasoning, multi-agent orchestration, and custom tooling to build systems that understand what they're automating &mdash; and iterate at machine speed.
   <span data-skill-count style="display:none;"></span>
 </p>
+
+<!-- ── RESEARCH CALLOUT ── -->
+<div class="card" style="margin-bottom: 2rem; border-left: 3px solid var(--green); background: rgba(52,211,153,.04);">
+  <div class="tag tag-green">Why This Matters &mdash; The Research</div>
+  <p style="margin-bottom: .75rem;">
+    AI-assisted development isn't hype. The data is in:
+  </p>
+  <ul style="margin-bottom: .75rem;">
+    <li><strong>55.8% faster task completion</strong> &mdash; Controlled experiment with 95 professional developers (Peng et al., <a href="https://arxiv.org/abs/2302.06590" target="_blank" rel="noopener">arXiv:2302.06590</a>, 2023). Developers with AI pair programming completed an HTTP server implementation in 1h11m vs. 2h41m without. Statistically significant (P=.0017).</li>
+    <li><strong>60&ndash;75% higher job satisfaction</strong> &mdash; Survey of 2,000+ developers found those using AI tools felt more fulfilled, less frustrated, and able to focus on meaningful work (<a href="https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/" target="_blank" rel="noopener">GitHub Research, 2022</a>).</li>
+    <li><strong>87% less mental effort on repetitive tasks</strong> &mdash; Same study. AI handles the boilerplate; humans do the thinking.</li>
+    <li><strong>73% stayed in flow state</strong> &mdash; Fewer context switches, fewer interruptions, more sustained productivity.</li>
+  </ul>
+  <p style="font-size: .88rem; color: var(--text-dim);">
+    <strong style="color: var(--text);">The key insight:</strong> The research found that AI tools particularly benefit developers with non-traditional backgrounds &mdash; people who bring diverse experience and domain knowledge rather than just CS theory. That describes my career path exactly: cable pulling, hardware engineering, field installs, endpoint support, and systems automation &mdash; each role adding layers of context that no bootcamp teaches.
+  </p>
+</div>
 
 <div class="card-grid cols-2" style="margin-bottom: 2rem;">
   <div class="card">
@@ -31,6 +48,49 @@
   </div>
 </div>
 
+<!-- ── CONTEXT-BUILDING TOOLS ── -->
+<div class="card-grid cols-2" style="margin-bottom: 2rem;">
+  <div class="card">
+    <div class="tag tag-amber">Context Engineering</div>
+    <h3>Scrapers &amp; Context Builders</h3>
+    <ul>
+      <li>Building Playwright-based web scrapers that extract structured data from vendor portals, internal tools, and documentation sites to feed AI agent context</li>
+      <li>Designing context-gathering pipelines: scrape &rarr; normalize &rarr; enrich &rarr; cache &rarr; feed to agent &mdash; so the AI understands <em>what</em> it's automating and <em>why</em></li>
+      <li>HP Partsurfer BFF API scraping with Azure Front Door WAF bypass for real-time hardware data enrichment</li>
+      <li>HPIA Platform List parsing (580+ models), SDM Reference CAB extraction, CVA metadata pipelines</li>
+      <li>Building Agent Brain: a live file-system index, project registry, and cross-repo search engine that gives AI agents full environmental awareness</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="tag tag-green">Rapid Iteration</div>
+    <h3>Why Context = Speed</h3>
+    <ul>
+      <li>When an AI agent has deep context about the domain it's operating in, it doesn't guess &mdash; it <em>knows</em>. The difference between a generic AI response and a precise, actionable one is the quality of context you feed it.</li>
+      <li>My scrapers and context tools pre-load agents with hardware specs, vendor data, endpoint configurations, and project state &mdash; turning generic LLMs into domain specialists</li>
+      <li>This is how I built a full Electron desktop app (HP DMI Branding Tool) in weeks, not months &mdash; the agent knew the HP product taxonomy, BIOS table schemas, and branding workflow because I gave it that context</li>
+      <li>Every iteration is faster because the agent retains and builds on previous context through persistent memory files</li>
+      <li>The result: rapid prototyping, fast validation, and shipped production tools at a pace manual development can't match</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ── FIELD / PHONE / CONSOLE ── -->
+<div class="card" style="margin-bottom: 2rem; border-left: 3px solid var(--accent);">
+  <div class="tag tag-accent">The Multiplier Effect</div>
+  <h3 style="margin-bottom: .5rem;">In the Field. On the Phone. At the Console.</h3>
+  <p>
+    Most people who understand AI have never pulled a cable. Most people who've pulled cables don't build multi-agent AI systems. I've done both &mdash; and everything in between. That range isn't just a resume line; it's a <strong>compounding advantage</strong>:
+  </p>
+  <ul>
+    <li><strong>In the field</strong> &mdash; I know what's physically inside the wall, inside the endpoint, and on the motherboard. When I build automation, I'm not abstracting away layers I don't understand. I've terminated the Cat6. I've branded the BIOS. I've swapped the drive.</li>
+    <li><strong>On the phone</strong> &mdash; I've triaged thousands of support calls and walk-ups. I know where users get stuck, which SOPs fail in practice, and what the real pain points are &mdash; not the ones in a requirements doc.</li>
+    <li><strong>At the console</strong> &mdash; I write the PowerShell frameworks, the TypeScript APIs, the Electron apps, the AI agent architectures. I build scrapers that feed context to agents that produce tools that ship to production.</li>
+  </ul>
+  <p style="margin-top: .75rem; font-size: .9rem; color: var(--text-dim);">
+    <strong style="color: var(--text);">The multiplier:</strong> Each layer of experience makes the next one more valuable. The cable puller understands latency. The support specialist understands user behavior. The endpoint engineer understands enterprise constraints. The AI architect uses all of it to build systems that actually work in the real world &mdash; not just in a demo.
+  </p>
+</div>
+
 <h3 style="margin-bottom: 1rem; font-size: 1rem;">Core Skills</h3>
 <div class="skills-grid">
   <div class="skill-item"><span class="icon"></span>Multi-Agent Orchestration &amp; Coordination</div>
@@ -39,10 +99,14 @@
   <div class="skill-item"><span class="icon"></span>Tool Failure Recovery &amp; Fallback Orchestration</div>
   <div class="skill-item"><span class="icon"></span>Signal-Based Adaptation &amp; Continuous Learning</div>
   <div class="skill-item"><span class="icon"></span>Confidence Calibration &amp; Counterfactual Review</div>
+  <div class="skill-item"><span class="icon"></span>Web Scraping &amp; Context Pipeline Engineering</div>
+  <div class="skill-item"><span class="icon"></span>Domain-Specific Agent Context Building</div>
   <div class="skill-item"><span class="icon"></span>Endpoint Automation (PowerShell, Idempotent Design)</div>
   <div class="skill-item"><span class="icon"></span>Full-Stack Development (TypeScript, Fastify, React)</div>
   <div class="skill-item"><span class="icon"></span>VS Code Custom Agent Architecture</div>
   <div class="skill-item"><span class="icon"></span>Prompt Engineering &amp; LLM Integration</div>
+  <div class="skill-item"><span class="icon"></span>Playwright Browser Automation &amp; API Interception</div>
   <div class="skill-item"><span class="icon"></span>Git-Based Change Management &amp; CI/CD</div>
   <div class="skill-item"><span class="icon"></span>Enterprise Security &amp; Compliance Automation</div>
+  <div class="skill-item"><span class="icon"></span>Rapid Prototyping &amp; AI-Accelerated Iteration</div>
 </div>
