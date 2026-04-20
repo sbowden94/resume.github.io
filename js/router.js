@@ -12,6 +12,7 @@
   // Page registry — maps hash to partial file
   const pages = {
     home:     'pages/home.html',
+    services: 'pages/services.html',
     ai:       'pages/ai.html',
     resume:   'pages/resume.html',
     projects: 'pages/projects.html',
@@ -100,8 +101,8 @@
       });
     }
 
-    // Contact: make emails/phone clickable
-    if (name === 'contact') {
+    // Contact & Services: make emails/phone clickable
+    if (name === 'contact' || name === 'services') {
       contentEl.querySelectorAll('[data-email]').forEach(el => {
         const email = el.textContent.trim();
         el.innerHTML = `<a href="mailto:${email}">${email}</a>`;
