@@ -22,7 +22,7 @@ A professional portfolio and resume site built with static HTML/CSS for internal
 - Hero section with professional headline
 - Key focus areas and highlights
 - About section with professional summary
-- Contact information
+- Leadership, collaboration, and enterprise improvement signals
 
 ### Resume (`resume.html`)
 - Professional summary
@@ -38,6 +38,8 @@ A professional portfolio and resume site built with static HTML/CSS for internal
 - AI-Assisted Inventory & Reporting
 - Local Web UI for PowerShell Operations
 - Atlas Learning Systems Initiative (R&D)
+- Enterprise Network Services Tiger Team
+- IT Infrastructure Leadership Lab Nomination
 
 ## Design Features
 
