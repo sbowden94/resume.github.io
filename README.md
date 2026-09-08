@@ -93,11 +93,11 @@ A professional portfolio and resume site built with static HTML/CSS for internal
 
 ### GitHub Pages Setup
 
-1. Create a new repository named `bowden-scotty_MCGHCA.github.io`
+1. Use the existing personal Pages repository named `resume.github.io`
 2. Clone the repository:
    ```bash
-   git clone https://github.com/bowden-scotty_MCGHCA/bowden-scotty_MCGHCA.github.io.git
-   cd bowden-scotty_MCGHCA.github.io
+   git clone https://github.com/sbowden94/resume.github.io.git
+   cd resume.github.io
    ```
 3. Add project files to the repository
 4. Push to GitHub:
@@ -106,7 +106,7 @@ A professional portfolio and resume site built with static HTML/CSS for internal
    git commit -m "Initial site deployment"
    git push origin main
    ```
-5. Visit `https://bowden-scotty_MCGHCA.github.io`
+5. Visit `https://sbowden94.github.io/resume.github.io/`
 
 ### Deployment from VS Code
 
